@@ -9,9 +9,10 @@ export interface StatsCardProps {
     trendType?: "positive" | "negative" | "neutral" | "warning";
     subtitle: string;
     icon: LucideIcon;
+    valueColor?: "primary" | "warning" | "title";
 }
 
-const StatsCard: React.FC<StatsCardProps> = ({ title, value, trend, trendType = "positive", subtitle, icon: Icon }) => {
+const StatsCard: React.FC<StatsCardProps> = ({ title, value, trend, trendType = "positive", subtitle, icon: Icon, valueColor = "title" }) => {
     const getTrendBadge = () => {
         if (!trend) return null;
         if (trendType === "warning") {
@@ -36,6 +37,12 @@ const StatsCard: React.FC<StatsCardProps> = ({ title, value, trend, trendType = 
         );
     };
 
+    const getValueColorClass = () => {
+        if (valueColor === "primary") return "text-primary";
+        if (valueColor === "warning") return "text-amber-400";
+        return "text-title";
+    };
+
     return (
         <div className="bg-card border border-card-border rounded-xl p-5 flex flex-col justify-between hover:border-card-border/80 transition-all duration-200 shadow-sm">
             {/* Top Row: Title & Icon */}
@@ -50,7 +57,7 @@ const StatsCard: React.FC<StatsCardProps> = ({ title, value, trend, trendType = 
 
             {/* Middle Row: Value & Trend */}
             <div className="my-3 flex items-baseline justify-between">
-                <h3 className="text-2xl font-extrabold text-title tracking-tight">
+                <h3 className={`text-2xl font-extrabold tracking-tight ${getValueColorClass()}`}>
                     {value}
                 </h3>
                 {getTrendBadge()}
