@@ -19,11 +19,11 @@ const RegionalManagersTable: React.FC<RegionalManagersTableProps> = ({ managers,
                 <table className="w-full text-left border-collapse min-w-225">
                     <thead>
                         <tr className="border-b border-card-border/80 text-[10px] uppercase font-bold tracking-wider text-description/80 bg-sidebar/50">
-                            <th className="py-4 px-5">REGIONAL MANAGER</th>
-                            <th className="py-4 px-5">CLUB BOUNDS</th>
-                            <th className="py-4 px-5">BOUND REGION(S)</th>
-                            <th className="py-4 px-5">DATE BOUND</th>
-                            <th className="py-4 px-5">AUTHORITY STATE</th>
+                            <th className="py-4 px-5 whitespace-nowrap">REGIONAL MANAGER</th>
+                            <th className="py-4 px-5 whitespace-nowrap">CLUB BOUNDS</th>
+                            <th className="py-4 px-5 whitespace-nowrap">BOUND REGION(S)</th>
+                            <th className="py-4 px-5 whitespace-nowrap">DATE BOUND</th>
+                            <th className="py-4 px-5 whitespace-nowrap">AUTHORITY STATE</th>
                             <th className="py-4 px-5 text-right">ACTIONS</th>
                         </tr>
                     </thead>
@@ -90,12 +90,12 @@ const RegionalManagersTable: React.FC<RegionalManagersTableProps> = ({ managers,
                                     </td>
 
                                     {/* Date Bound */}
-                                    <td className="py-4 px-5 font-mono text-description/90 text-xs">
+                                    <td className="py-4 px-5 font-mono text-description/90 text-xs whitespace-nowrap">
                                         {manager.dateBound}
                                     </td>
 
                                     {/* Authority State */}
-                                    <td className="py-4 px-5">
+                                    <td className="py-4 px-5 whitespace-nowrap">
                                         {manager.authorityState === "ACTIVE" ? (
                                             <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-extrabold tracking-wider bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
                                                 ACTIVE
@@ -117,7 +117,7 @@ const RegionalManagersTable: React.FC<RegionalManagersTableProps> = ({ managers,
                                             <button
                                                 type="button"
                                                 onClick={() => onModify(manager)}
-                                                className="px-3 py-1.5 rounded-xl bg-sidebar hover:bg-card-border border border-card-border/80 text-title text-xs font-medium transition-colors cursor-pointer"
+                                                className="px-3 py-1.5 rounded-xl bg-sidebar hover:bg-card-border border border-card-border/80 text-title text-xs font-medium transition-colors cursor-pointer whitespace-nowrap"
                                             >
                                                 Modify Assignment
                                             </button>
