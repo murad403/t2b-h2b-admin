@@ -5,19 +5,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { X, Check } from "lucide-react";
 import { MembershipPlan, PlanFormData } from "@/types/membership-plan";
 import { updatePlanSchema } from "@/validation/app.validation";
+import { availablePerksList } from "./lib";
 
-const availablePerksList = [
-    "Directory access",
-    "Standard event tickets",
-    "Local chapter forums",
-    "T2B Member Pin",
-    "Priority RSVP for matches",
-    "CEO Circle eligibility",
-    "Private luxury suites",
-    "Personal Chapter concierge",
-    "Logo on court backdrops",
-    "Corporate Team (5 Pax)",
-];
 
 interface UpdatePlanModalProps {
     isOpen: boolean;
