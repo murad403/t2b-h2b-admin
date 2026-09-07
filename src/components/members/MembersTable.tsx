@@ -261,13 +261,13 @@ const MembersTable: React.FC<MembersTableProps> = ({ members, onViewDetails, onE
                                             {/* Club */}
                                             <td className="p-4">
                                                 {member.club === "T2B" ? (
-                                                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-[#182218] text-primary border border-primary/30">
-                                                        <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                                                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-extrabold bg-[#152312] text-primary border border-primary/30 shadow-xs">
+                                                        <span className="text-xs leading-none">🎾</span>
                                                         T2B
                                                     </span>
                                                 ) : (
-                                                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-[#0F2238] text-accent-h2b border border-accent-h2b/30">
-                                                        <span className="w-1.5 h-1.5 rounded-full bg-accent-h2b"></span>
+                                                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-extrabold bg-[#0E1E32] text-accent-h2b border border-accent-h2b/30 shadow-xs">
+                                                        <span className="text-xs leading-none">🏒</span>
                                                         H2B
                                                     </span>
                                                 )}
