@@ -199,7 +199,7 @@ const EventsPage = () => {
       onClick={() => setIsAddModalOpen(true)}
       className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-bg-dark text-xs font-extrabold hover:brightness-110 shadow-[0_0_12px_rgba(198,241,53,0.3)] transition-all cursor-pointer"
     >
-      <Plus className="w-4 h-4 stroke-[3]" />
+      <Plus className="w-4 h-4 stroke-3" />
       Create Event
     </button>
   );
