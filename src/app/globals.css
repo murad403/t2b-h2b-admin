@@ -5,4 +5,42 @@
   --color-title: #F8FAFC;
   --color-description: #64748B;
   --color-button: #C6F135;
+  --color-accent-t2b: #C6F135;
+  --color-accent-h2b: #38BDF8;
+  --color-bg-dark: #0B0E17;
+  --color-sidebar: #0B0E17;
+  --color-card: #111622;
+  --color-card-border: #1C2436;
+}
+
+:root {
+  color-scheme: dark;
+  background-color: #0B0E17;
+  color: #F8FAFC;
+}
+
+body {
+  background-color: #0B0E17;
+  color: #F8FAFC;
+  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar for admin interface */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0B0E17;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1C2436;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2D3952;
 }
