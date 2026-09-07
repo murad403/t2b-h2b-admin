@@ -20,11 +20,11 @@ const PageContainer: React.FC<PageContainerProps> = ({
       {/* Header Section */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-extrabold tracking-tight text-[#F8FAFC]">
+          <h1 className="text-2xl font-extrabold tracking-tight text-title">
             {title}
           </h1>
           {description && (
-            <p className="text-xs text-[#64748B] font-medium mt-1">
+            <p className="text-xs text-description font-medium mt-1">
               {description}
             </p>
           )}

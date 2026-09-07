@@ -48,9 +48,9 @@ const regionsData: RegionItem[] = [
 
 const TopRegionsRevenue = () => {
   return (
-    <div className="bg-[#111622] border border-[#1C2436] rounded-xl p-6 flex flex-col justify-between h-full">
+    <div className="bg-card border border-card-border rounded-xl p-6 flex flex-col justify-between h-full">
       <div>
-        <h2 className="text-base font-bold text-[#F8FAFC] mb-4">
+        <h2 className="text-base font-bold text-title mb-4">
           Top Regions by Revenue
         </h2>
 
@@ -60,19 +60,19 @@ const TopRegionsRevenue = () => {
               {/* Item Header */}
               <div className="flex items-center justify-between text-xs">
                 <div className="flex items-center gap-1.5 font-semibold">
-                  <span className="text-[#64748B]">#{item.rank}</span>
-                  <span className="text-[#F8FAFC] font-bold">{item.name}</span>
-                  <span className="bg-[#1C2436] text-[#94A3B8] text-[9px] font-bold px-1.5 py-0.5 rounded border border-[#2D3952]/40">
+                  <span className="text-description">#{item.rank}</span>
+                  <span className="text-title font-bold">{item.name}</span>
+                  <span className="bg-card-border text-[#94A3B8] text-[9px] font-bold px-1.5 py-0.5 rounded border border-[#2D3952]/40">
                     {item.badge}
                   </span>
                 </div>
-                <span className="font-extrabold text-[#F8FAFC]">
+                <span className="font-extrabold text-title">
                   {item.revenue}
                 </span>
               </div>
 
               {/* Progress Bar Container */}
-              <div className="w-full bg-[#1C2436] h-1.5 rounded-full overflow-hidden">
+              <div className="w-full bg-card-border h-1.5 rounded-full overflow-hidden">
                 <div
                   className="bg-[#C6F135] h-full rounded-full transition-all duration-500 shadow-[0_0_8px_rgba(198,241,53,0.4)]"
                   style={{ width: `${item.performance}%` }}
@@ -80,7 +80,7 @@ const TopRegionsRevenue = () => {
               </div>
 
               {/* Item Subtitle Footers */}
-              <div className="flex items-center justify-between text-[11px] text-[#64748B]">
+              <div className="flex items-center justify-between text-[11px] text-description">
                 <span>{item.members} active members</span>
                 <span>{item.performance}% performance</span>
               </div>

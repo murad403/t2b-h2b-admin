@@ -1,6 +1,4 @@
 "use client";
-
-import React from "react";
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 
 interface TierItem {
@@ -25,13 +23,13 @@ const pieChartData = tierData.map((t) => ({
 
 const MembershipDistribution = () => {
   return (
-    <div className="bg-[#111622] border border-[#1C2436] rounded-xl p-6 flex flex-col justify-between h-full">
+    <div className="bg-card border border-card-border rounded-xl p-6 flex flex-col justify-between h-full">
       {/* Header */}
       <div className="mb-4">
-        <h2 className="text-base font-bold text-[#F8FAFC]">
+        <h2 className="text-base font-bold text-title">
           Membership Distribution
         </h2>
-        <p className="text-xs text-[#64748B] mt-0.5">
+        <p className="text-xs text-description mt-0.5">
           Subscriber counts segmented by Swiss membership levels
         </p>
       </div>
@@ -60,8 +58,8 @@ const MembershipDistribution = () => {
             </PieChart>
           </ResponsiveContainer>
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center pointer-events-none">
-            <span className="text-xl font-extrabold text-[#F8FAFC]">8</span>
-            <span className="text-[9px] font-bold tracking-wider text-[#64748B] uppercase">
+            <span className="text-xl font-extrabold text-title">8</span>
+            <span className="text-[9px] font-bold tracking-wider text-description uppercase">
               MEMBERS
             </span>
           </div>
@@ -69,7 +67,7 @@ const MembershipDistribution = () => {
 
         {/* Legend / Breakdown Table */}
         <div className="space-y-3">
-          <div className="flex items-center justify-between text-[10px] font-bold uppercase tracking-wider text-[#64748B] pb-2 border-b border-[#1C2436]">
+          <div className="flex items-center justify-between text-[10px] font-bold uppercase tracking-wider text-description pb-2 border-b border-card-border">
             <span>Tier</span>
             <span>Count & Share</span>
           </div>
@@ -85,9 +83,9 @@ const MembershipDistribution = () => {
                 ></span>
                 <span className="text-[#94A3B8] font-medium">{tier.name}</span>
               </div>
-              <div className="flex items-center gap-1 font-semibold text-[#F8FAFC]">
+              <div className="flex items-center gap-1 font-semibold text-title">
                 <span>{tier.count}</span>
-                <span className="text-[#64748B] text-[11px]">{tier.share}</span>
+                <span className="text-description text-[11px]">{tier.share}</span>
               </div>
             </div>
           ))}
