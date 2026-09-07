@@ -98,3 +98,24 @@ export const addPlanSchema = planSchema;
 export const updatePlanSchema = planSchema;
 
 export type PlanFormData = z.infer<typeof planSchema>;
+
+// ==========================================
+// REGIONAL MANAGER VALIDATION SCHEMAS
+// ==========================================
+
+export const createManagerSchema = z.object({
+  name: z.string().min(2, "Full Name is required"),
+  email: z.string().email("Valid email address is required"),
+  clubBounds: z.enum(["T2B", "H2B", "COMBINED"]),
+  password: z.string().min(6, "Password must be at least 6 characters"),
+});
+
+export const assignManagerSchema = z.object({
+  delegateSearch: z.string().min(2, "Delegate selection is required"),
+  clubBounds: z.enum(["T2B", "H2B", "COMBINED"]),
+  status: z.enum(["ACTIVE", "PENDING", "REVOKED"]),
+  boundRegions: z.array(z.string()).min(1, "At least one region must be bound"),
+});
+
+export type CreateManagerFormData = z.infer<typeof createManagerSchema>;
+export type AssignManagerFormData = z.infer<typeof assignManagerSchema>;

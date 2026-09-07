@@ -61,3 +61,34 @@ export const getStatusBadge = (status: MemberStatus) => {
             return null;
     }
 };
+
+export const getClubBoundsBadge = (bounds: string) => {
+    switch (bounds) {
+        case "T2B":
+            return (
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-[#1B291A] border border-[#2B4524] text-[#86EFAC]">
+                    <span className="w-2 h-2 rounded-full bg-[#C6F135]" />
+                    T2B
+                </span>
+            );
+        case "H2B":
+            return (
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-[#132738] border border-[#1E4061] text-[#93C5FD]">
+                    <span className="text-[10px]">🏒</span>
+                    H2B
+                </span>
+            );
+        case "COMBINED":
+        default:
+            return (
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-[#1F2430] border border-[#333D52] text-title/90">
+                    <span className="w-2 h-2 rounded-full bg-[#C6F135]" />
+                    <span className="text-description">+</span>
+                    <span className="text-[10px]">🏒</span>
+                    <span className="text-[10px] font-extrabold tracking-wider text-description/90">
+                        COMBINED
+                    </span>
+                </span>
+            );
+    }
+};
