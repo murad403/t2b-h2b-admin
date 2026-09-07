@@ -79,3 +79,22 @@ export const addEventSchema = eventSchema;
 export const updateEventSchema = eventSchema;
 
 export type EventFormData = z.infer<typeof eventSchema>;
+
+// ==========================================
+// MEMBERSHIP PLAN VALIDATION SCHEMAS
+// ==========================================
+
+export const planSchema = z.object({
+  name: z.string().min(2, "Plan Display Name is required"),
+  clubHost: z.enum(["T2B", "H2B"]),
+  price: z.number().min(0, "Plan cost must be 0 or higher"),
+  billingCycle: z.enum(["Yearly", "Monthly", "Lifetime"]),
+  eventsAllowance: z.string().min(2, "Events allowance is required"),
+  features: z.array(z.string()),
+  isArchived: z.boolean(),
+});
+
+export const addPlanSchema = planSchema;
+export const updatePlanSchema = planSchema;
+
+export type PlanFormData = z.infer<typeof planSchema>;
