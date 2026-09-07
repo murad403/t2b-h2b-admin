@@ -92,3 +92,28 @@ export const getClubBoundsBadge = (bounds: string) => {
             );
     }
 };
+
+
+export const getClubScopeBadge = (scope: string) => {
+    switch (scope) {
+        case "T2B":
+            return (
+                <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#1B291A] border border-[#2B4524] text-[#86EFAC]">
+                    T2B
+                </span>
+            );
+        case "H2B":
+            return (
+                <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#132738] border border-[#1E4061] text-[#93C5FD]">
+                    H2B
+                </span>
+            );
+        case "COMBINED":
+        default:
+            return (
+                <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#1F2430] border border-[#333D52] text-title/90">
+                    COMBINED
+                </span>
+            );
+    }
+};

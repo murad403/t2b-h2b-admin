@@ -140,3 +140,24 @@ export const notificationSchema = z
 
 export type NotificationSchemaFormData = z.infer<typeof notificationSchema>;
 
+// ==========================================
+// NEWS VALIDATION SCHEMAS
+// ==========================================
+
+export const newsSchema = z.object({
+  title: z.string().min(3, "Article Headline / Title is required"),
+  clubScope: z.enum(["T2B", "H2B", "COMBINED"]),
+  status: z.enum(["PUBLISHED", "DRAFT"]),
+  geoScope: z.enum(["NATIONAL", "REGIONAL"]),
+  canton: z.string().optional(),
+  isFeatured: z.boolean(),
+  coverImage: z.string(),
+  body: z.string().min(10, "Article Body must be at least 10 characters"),
+});
+
+export const addNewsSchema = newsSchema;
+export const updateNewsSchema = newsSchema;
+
+export type NewsSchemaFormData = z.infer<typeof newsSchema>;
+
+
