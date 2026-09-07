@@ -2,11 +2,11 @@
 import { useState } from "react";
 import PageContainer from "@/components/layout/PageContainer";
 import StatsCard from "@/components/shared/StatsCard";
-import RevenueTrend from "@/components/app/RevenueTrend";
-import TopRegionsRevenue from "@/components/app/TopRegionsRevenue";
-import RecentActivity from "@/components/app/RecentActivity";
-import MembershipDistribution from "@/components/app/MembershipDistribution";
-import ClubLevelComparison from "@/components/app/ClubLevelComparison";
+import RevenueTrend from "@/components/overview/RevenueTrend";
+import TopRegionsRevenue from "@/components/overview/TopRegionsRevenue";
+import RecentActivity from "@/components/overview/RecentActivity";
+import MembershipDistribution from "@/components/overview/MembershipDistribution";
+import ClubLevelComparison from "@/components/overview/ClubLevelComparison";
 import { Users, UserCheck, CreditCard, Globe, Calendar, Clock } from "lucide-react";
 
 const DashboardPage = () => {
