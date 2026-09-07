@@ -3,6 +3,7 @@ import { useState } from "react";
 import PageContainer from "@/components/layout/PageContainer";
 import MembersTable from "@/components/members/MembersTable";
 import MemberDetailsModal from "@/components/members/MemberDetailsModal";
+import AddMemberModal from "@/components/members/AddMemberModal";
 import MemberUpdateModal, { MemberFormData } from "@/components/members/MemberUpdateModal";
 import MemberDeleteModal from "@/components/members/MemberDeleteModal";
 import { Plus } from "lucide-react";
@@ -152,6 +153,7 @@ const MembersPage = () => {
   const [members, setMembers] = useState<Member[]>(initialMembers);
 
   // Modal States
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
   const [editingMember, setEditingMember] = useState<Member | null>(null);
 
@@ -163,8 +165,7 @@ const MembersPage = () => {
 
   // Add / Edit Member Trigger
   const handleOpenAddModal = () => {
-    setEditingMember(null);
-    setIsUpdateModalOpen(true);
+    setIsAddModalOpen(true);
   };
 
   const handleOpenEditModal = (member: Member) => {
@@ -182,10 +183,30 @@ const MembersPage = () => {
     setIsDeleteModalOpen(true);
   };
 
-  // Save Member (Add or Update)
+  // Add New Member
+  const handleAddMember = (data: MemberFormData) => {
+    const newMember: Member = {
+      id: `mem-${Date.now()}`,
+      name: data.name,
+      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80",
+      title: data.title,
+      company: data.company,
+      club: data.club,
+      region: data.region,
+      tier: data.tier,
+      joinDate: new Date().toISOString().split("T")[0],
+      status: data.status,
+      attended: 0,
+      email: data.email,
+      phone: data.phone,
+      notes: data.notes,
+    };
+    setMembers((prev) => [newMember, ...prev]);
+  };
+
+  // Update Member
   const handleSaveMember = (data: MemberFormData, memberId?: string) => {
     if (memberId) {
-      // Update existing
       setMembers((prev) =>
         prev.map((m) =>
           m.id === memberId
@@ -205,25 +226,6 @@ const MembersPage = () => {
             : m
         )
       );
-    } else {
-      // Add new
-      const newMember: Member = {
-        id: `mem-${Date.now()}`,
-        name: data.name,
-        avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80",
-        title: data.title,
-        company: data.company,
-        club: data.club,
-        region: data.region,
-        tier: data.tier,
-        joinDate: new Date().toISOString().split("T")[0],
-        status: data.status,
-        attended: 0,
-        email: data.email,
-        phone: data.phone,
-        notes: data.notes,
-      };
-      setMembers((prev) => [newMember, ...prev]);
     }
   };
 
@@ -278,7 +280,14 @@ const MembersPage = () => {
         onBulkActivate={handleBulkActivate}
       />
 
-      {/* Member Edit / Create Modal */}
+      {/* Add Member Modal */}
+      <AddMemberModal
+        isOpen={isAddModalOpen}
+        onClose={() => setIsAddModalOpen(false)}
+        onAdd={handleAddMember}
+      />
+
+      {/* Member Edit Modal */}
       <MemberUpdateModal
         isOpen={isUpdateModalOpen}
         member={editingMember}
