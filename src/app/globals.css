@@ -1,2 +1,8 @@
 @import "tailwindcss";
 
+@theme {
+  --color-heading: #C6F135;
+  --color-title: #F8FAFC;
+  --color-description: #64748B;
+  --color-button: #C6F135;
+}
