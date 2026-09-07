@@ -119,3 +119,24 @@ export const assignManagerSchema = z.object({
 
 export type CreateManagerFormData = z.infer<typeof createManagerSchema>;
 export type AssignManagerFormData = z.infer<typeof assignManagerSchema>;
+
+// ==========================================
+// NOTIFICATION VALIDATION SCHEMAS
+// ==========================================
+
+export const notificationSchema = z
+  .object({
+    subjectTitle: z.string().min(3, "Subject Title / Alert Line is required"),
+    scope: z.enum(["ONE_REGION", "ALL_REGIONS", "ALL_SWITZERLAND", "INTERNATIONAL"]),
+    targetClub: z.enum(["COMBINED", "T2B", "H2B"]),
+    emailCampaign: z.boolean(),
+    mobilePush: z.boolean(),
+    body: z.string().min(5, "Notification body text is required"),
+  })
+  .refine((data) => data.emailCampaign || data.mobilePush, {
+    message: "At least one delivery channel (Email or Mobile Push) must be selected",
+    path: ["emailCampaign"],
+  });
+
+export type NotificationSchemaFormData = z.infer<typeof notificationSchema>;
+
