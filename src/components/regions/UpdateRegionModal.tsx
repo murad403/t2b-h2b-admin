@@ -2,18 +2,9 @@
 import React, { JSX, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 import { X } from "lucide-react";
 import { Region, RegionFormData, ChapterManager } from "@/types/region";
-
-const updateRegionSchema = z.object({
-    name: z.string().min(2, "Region/City Name is required"),
-    clubScope: z.enum(["both", "t2b", "h2b"], {
-        message: "Club Affiliation Scope is required",
-    }),
-    managerId: z.string(),
-    isActive: z.boolean(),
-});
+import { updateRegionSchema } from "@/validation/app.validation";
 
 interface UpdateRegionModalProps {
     isOpen: boolean;

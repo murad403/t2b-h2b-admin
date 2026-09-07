@@ -2,19 +2,8 @@
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 import { Club } from "@/types/club";
-
-const clubSettingsSchema = z.object({
-    description: z
-        .string()
-        .min(10, "Mission & description must be at least 10 characters"),
-    email: z.string().email("Valid administrative email is required"),
-    phone: z.string().min(5, "Swiss support hotline is required"),
-    announcementsScope: z.string().min(3, "Announcements scope is required"),
-});
-
-export type ClubSettingsFormData = z.infer<typeof clubSettingsSchema>;
+import { clubSettingsSchema, ClubSettingsFormData } from "@/validation/app.validation";
 
 interface ClubSettingsModalProps {
     isOpen: boolean;

@@ -2,22 +2,8 @@
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 import { X } from "lucide-react";
-import { MemberFormData } from "./MemberUpdateModal";
-
-const addMemberSchema = z.object({
-    name: z.string().min(2, "Full Name is required"),
-    club: z.enum(["T2B", "H2B"] as const),
-    company: z.string().min(2, "Company/Organization is required"),
-    title: z.string().min(2, "Professional Designation is required"),
-    email: z.string().email("Valid business email is required"),
-    phone: z.string().min(5, "Mobile hotline is required"),
-    region: z.enum(["Lugano", "Zurich", "Geneva", "Bern", "Lausanne", "Basel"] as const),
-    tier: z.enum(["VIP", "PREMIUM", "GOLD", "PARTNER"] as const),
-    status: z.enum(["ACTIVE", "PENDING", "SUSPENDED", "FLAGGED"] as const),
-    notes: z.string().optional(),
-});
+import { MemberFormData, addMemberSchema } from "@/validation/app.validation";
 
 interface AddMemberModalProps {
     isOpen: boolean;
